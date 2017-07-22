@@ -7,6 +7,7 @@
 //============================================================================
 
 #include <iostream>
+#include <vector>
 #include <assert.h>
 
 using namespace std;
@@ -71,6 +72,27 @@ Method_opt* Method_opt::User_Method( MethodN id ){
 
 int main() {
 
-	//test
+	vector<Method_opt*> v;
+
+	v.push_back( Method_opt::User_Method( GoldsechN));
+	v.push_back( Method_opt::User_Method( GenN));
+	v.push_back( Method_opt::User_Method( SumpN));
+
+	for(int i=0; i<v.size(); i++){
+		switch (v[i]->info()){
+		    case 3:
+		    	cout << "Golden section" << endl;
+		    	break;
+		    case 2:
+		    	cout << "Genetic method" << endl;
+		    	break;
+		    case 1:
+		    	cout << "Simplex method" << endl;
+		    	break;
+		    default:
+		    	cout << "Unknown method";
+		}
+	}
+
 
 }
